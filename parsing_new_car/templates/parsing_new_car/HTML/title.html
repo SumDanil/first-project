@@ -1,0 +1,38 @@
+{% extends 'parsing_new_car/HTML/8.html' %}
+
+{% block content %}
+    <div class="col-10" >
+        {% for car in page_obj %}
+        <div class="card mb-3 text-white bg-secondary .h-100">
+            <div class="row no-gutters">
+                <div class="col-3" style="text-align: left;">
+                    <img src="{{ car.photo }}" height="200px"
+                         width="100%">
+                </div>
+                <div class="col-9">
+                    <div class="card-body">
+                        <div class="row" style="border: solid;">
+                            <div class="col-5">
+                                <p>{{ car.car_brand }}</p>
+                                <div class="row">
+                                    <div class="col-6" style="text-align: left; border: solid;">
+                                        <p><i class="fas fa-dollar-sign"></i> {{car.price_grn}}</p>
+                                        <p><i class="fas fa-tachometer-alt"></i> {{car.race}} тыс.км</p>
+                                    </div>
+                                    <div class="col-6" style="border: solid;">
+                                        <p><i class="fas fa-city"></i> {{car.city}}</p>
+                                        <p><i class="fas fa-atom"></i> {{car.engine_type}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-7" style="border: solid; text-overflow: ellipsis; overflow: hidden;">
+                                <p>{{car.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

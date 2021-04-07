@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="stile.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <title>Б/у машины</title>
+</head>
+<body>
+<nav class="navbar navbar-expend-lg navbar-dark bg-dark sticky-top">
+    <a href="#" class="navbar-brand">
+        <img src="https://www.flaticon.com/premium-icon/icons/svg/3085/3085411.svg" width="90" height="90" alt="logo">
+    </a>
+</nav>
+<div class="container-fluid">
+    <div class="row text-center align-items-start">
+        <div class="col-2">
+            <form method="get">
+            <select name="oblast" class="custom-select">
+                {% for region in region_mas %}
+                <option value="{{region}}">{{region}}</option>
+                {% endfor %}
+            </select>
+                <p></p>
+                <p>Цена машины:</p>
+                <input type="number" name="price_ot" placeholder="цена от" value="{{min_price}}">
+                <input type="number" name="price_do" placeholder="цена до" value="{{max_price}}">
+                <p></p>
+                <p>Пробег машины:</p>
+                <input type="number" name="race_ot" placeholder="Пробег от" value="{{ min_race }}">
+                <input type="number" name="race_do" placeholder="Пробег до" value="{{ max_race }}">
+                 <p></p>
+                <p>Возраст машины:</p>
+                <input type="number" name="age_ot" placeholder="Возраст от" value="{{ max_years }}">
+                <input type="number" name="age_do" placeholder="Возраст до" value="{{ min_years }}">
+                <p><input type="submit" value="Отправить"></p>
+                </form>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">&laquo; first</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+        </li>
+        {% endif %}
+        <li class="page-item"><a class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</a>
+        </li>
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a></li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+-->
+</body>
+</html>
