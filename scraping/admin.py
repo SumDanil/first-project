@@ -3,8 +3,6 @@ from django.contrib import admin
 from .models import *
 
 admin.site.register(Car)
-admin.site.register(BodyType)
-admin.site.register(FuelType)
 admin.site.register(EngineType)
 admin.site.register(Region)
 admin.site.register(City)
