@@ -117,6 +117,7 @@ def title(request):
         # print(cars.count())
         # print(age_do)
         print('1')
+        print('2')
 
     paginator = Paginator(cars.all(), 20)
     page_number = request.GET.get('page')
