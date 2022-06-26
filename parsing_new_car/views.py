@@ -118,7 +118,7 @@ def title(request):
         # print(age_do)
         print('1')
         print('2')
-        print('new branch')
+        print('changes  on branch test3')
 
     paginator = Paginator(cars.all(), 20)
     page_number = request.GET.get('page')
