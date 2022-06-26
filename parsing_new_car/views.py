@@ -116,8 +116,7 @@ def title(request):
         max_years = request.GET.get('age_do')
         # print(cars.count())
         # print(age_do)
-
-
+        print('1')
 
     paginator = Paginator(cars.all(), 20)
     page_number = request.GET.get('page')
@@ -138,5 +137,3 @@ def title(request):
     }
 
     return render(request, 'parsing_new_car/HTML/title.html', context=context)
-
-
