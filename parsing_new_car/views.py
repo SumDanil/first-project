@@ -118,6 +118,7 @@ def title(request):
         # print(age_do)
         print('1')
         print('2')
+        print('changes only on master')
 
     paginator = Paginator(cars.all(), 20)
     page_number = request.GET.get('page')
