@@ -121,7 +121,7 @@ def title(request):
         print('changes only on master22')
         print('changes  on branch test3')
         print('test with vs code133')
-        print('vs code change in git22')
+        print('vs code change in git11')
 
     paginator = Paginator(cars.all(), 20)
     page_number = request.GET.get('page')
