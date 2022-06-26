@@ -119,6 +119,7 @@ def title(request):
         print('1')
         print('2')
         print('changes only on master22')
+        print('changes  on branch test3')
 
     paginator = Paginator(cars.all(), 20)
     page_number = request.GET.get('page')
